@@ -54,3 +54,17 @@ fun HalamanHome(
         stringResource(id = R.string.laki_laki),
         stringResource(id = R.string.perempuan)
     )
+// Bungkus semua dalam satu Column agar layout teratur dari atas ke bawah
+    Column(
+        modifier = modifier
+            .padding(dimensionResource(R.dimen.padding_medium))
+            .fillMaxSize(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        // --- Bagian Input Form ---
+        Column(
+            modifier = Modifier.padding(dimensionResource(R.dimen.padding_medium)),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_small))
+        ) {
