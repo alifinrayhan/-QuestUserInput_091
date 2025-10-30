@@ -68,3 +68,27 @@ fun HalamanHome(
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_small))
         ) {
+     OutlinedTextField(
+                value = textNama,
+                singleLine = true,
+                shape = MaterialTheme.shapes.large,
+                modifier = Modifier.fillMaxWidth(),
+                label = { Text(text = "Nama Lengkap") },
+                onValueChange = { textNama = it }
+            )
+            OutlinedTextField(
+                value = textTelp,
+                singleLine = true,
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+                shape = MaterialTheme.shapes.large,
+                modifier = Modifier.fillMaxWidth(),
+                label = { Text(text = "Telepon") },
+                onValueChange = { textTelp = it }
+            )
+            OutlinedTextField(
+                value = textAlamat,
+                singleLine = true,
+                modifier = Modifier.fillMaxWidth(),
+                label = { Text(text = "Alamat") },
+                onValueChange = { textAlamat = it }
+            )
