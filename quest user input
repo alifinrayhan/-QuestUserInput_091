@@ -92,3 +92,55 @@ fun HalamanHome(
                 label = { Text(text = "Alamat") },
                 onValueChange = { textAlamat = it }
             )
+  // Pilihan Jenis Kelamin
+            Row(modifier = Modifier.fillMaxWidth()) {
+                listJk.forEach { item ->
+                    Row(
+                        modifier = Modifier
+                            .selectable(
+                                selected = jenisJK == item,
+                                onClick = { jenisJK = item }
+                            )
+                            .padding(horizontal = 16.dp),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        RadioButton(
+                            selected = jenisJK == item,
+                            onClick = { jenisJK = item }
+                        )
+                        Text(item)
+                    }
+                }
+            }
+        }
+
+        // --- Tombol Submit ---
+        Button(
+            modifier = Modifier.fillMaxWidth(),
+            onClick = {
+                // Update state untuk hasil saat tombol diklik
+                nama = textNama
+                alamat = textAlamat
+                telp = textTelp
+                jenis = jenisJK
+            }
+        ) {
+            Text(text = "Submit")
+        }
+
+        Spacer(modifier = Modifier.height(32.dp))
+
+        // --- Kartu Hasil ---
+        ElevatedCard(
+            elevation = CardDefaults.cardElevation(defaultElevation = 6.dp),
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Column(modifier = Modifier.padding(16.dp)) {
+                Text(text = "Nama : " + nama)
+                Text(text = "Telepon : " + telp)
+                Text(text = "Jenis Kelamin : " + jenis)
+                Text(text = "Alamat : " + alamat)
+            }
+        }
+    }
+}
